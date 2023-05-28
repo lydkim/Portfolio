@@ -1,0 +1,39 @@
+#smaller test for generate and join
+CREATE firstTable 2 string int brand ranking
+CREATE secondTable 2 string int moreBrands ranking
+INSERT INTO firstTable 4 ROWS
+lululemon 10
+brandy 7
+abercrombie 9
+apple 5
+INSERT INTO secondTable 4 ROWS
+stanley 4
+ugg 6
+pacsun 3
+whiteFox 8
+GENERATE FOR firstTable bst INDEX ON ranking
+GENERATE FOR secondTable bst INDEX ON ranking
+PRINT FROM firstTable 1 brand WHERE ranking < 8
+PRINT FROM firstTable 1 brand WHERE ranking > 8
+PRINT FROM firstTable 1 brand WHERE ranking = 8
+GENERATE FOR firstTable hash INDEX ON ranking
+INSERT INTO firstTable 4 ROWS
+goldenGoose 1
+nike 9
+converse 8
+reebok 7
+PRINT FROM firstTable 1 brand WHERE ranking < 8
+PRINT FROM firstTable 1 brand WHERE ranking > 8
+PRINT FROM firstTable 1 brand WHERE ranking = 8
+PRINT FROM secondTable 1 moreBrands WHERE ranking < 5
+PRINT FROM secondTable 1 moreBrands WHERE ranking > 5
+PRINT FROM secondTable 1 moreBrands WHERE ranking = 5
+JOIN firstTable AND secondTable WHERE ranking = ranking AND PRINT 1 brand 1
+DELETE FROM firstTable WHERE ranking > 10
+DELETE FROM firstTable WHERE ranking = 2
+DELETE FROM secondTable WHERE ranking < 6
+GENERATE FOR firstTable hash INDEX ON ranking
+PRINT FROM firstTable 1 brand WHERE ranking < 8
+PRINT FROM firstTable 1 brand WHERE ranking > 8
+PRINT FROM firstTable 1 brand WHERE ranking = 8
+QUIT

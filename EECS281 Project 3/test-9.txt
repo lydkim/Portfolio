@@ -1,0 +1,32 @@
+#some more random tests
+CREATE mcd 3 string int bool item price fav?
+INSERT INTO mcd 5 ROWS
+mcchicken 2 true
+coke 1 true
+mcdouble 2 false
+burger 5 false
+bigMac 7 false
+CREATE tacoBell 3 string int bool food cost favorite?
+INSERT INTO tacoBell 5 ROWS
+taco 8 false
+drink 2 true
+potato 5 true
+churro 3 true
+burrito 7 false
+GENERATE FOR mcd hash INDEX ON fav?
+DELETE FROM mcd WHERE fav? = false
+INSERT INTO mcd 5 ROWS
+slushie 6 true
+fries 4 true
+cookie 3 false
+cone 2 true
+wrap 8 true
+GENERATE FOR tacoBell hash INDEX ON favorite?
+JOIN mcd AND tacoBell WHERE fav? = favorite? AND PRINT 1 item 1
+GENERATE FOR tacoBell bst INDEX ON price
+PRINT FROM tacoBell 1 food WHERE price < 5
+PRINT FROM tacoBell 1 food WHERE price > 5
+PRINT FROM tacoBell 1 food WHERE price = 5
+REMOVE mcd
+REMOVE tacoBell
+QUIT
