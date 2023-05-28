@@ -1,0 +1,12 @@
+M
+2
+3
+//test M mode input file with two 3x3 levels
+//level 0
+..E
+.#.
+..S
+//level 1
+..E
+..H
+...
